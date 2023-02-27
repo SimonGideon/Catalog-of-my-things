@@ -1,4 +1,5 @@
 require 'date'
+require_relative 'label'
 
 class Item
   attr_accessor :genre, :author, :source, :label, :publish_date
@@ -11,7 +12,7 @@ class Item
     @source = source
     @label = label
     @publish_date = Date.parse(publish_date)
-    @archived = archived
+    @archived = false
   end
 
   def move_to_archive
