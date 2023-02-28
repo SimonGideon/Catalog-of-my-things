@@ -12,4 +12,12 @@ describe Author do
       expect(author.items).to eql [item]
     end
   end
+
+  context '#initialize' do
+    it 'Should initialize the class' do
+        author = Author.new('Enoque', 'Macanda')
+        
+        expect(author).to be_instance_of Author
+    end
+  end
 end
