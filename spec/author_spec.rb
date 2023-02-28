@@ -15,9 +15,9 @@ describe Author do
 
   context '#initialize' do
     it 'Should initialize the class' do
-        author = Author.new('Enoque', 'Macanda')
-        
-        expect(author).to be_instance_of Author
+      author = Author.new('Enoque', 'Macanda')
+
+      expect(author).to be_instance_of Author
     end
   end
 end
