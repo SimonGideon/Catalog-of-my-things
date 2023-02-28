@@ -1,2 +1,2 @@
-require_relative '../author.rb'
-require_relative '../game.rb'
+require_relative '../author'
+require_relative '../game'
