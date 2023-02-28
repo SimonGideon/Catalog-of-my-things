@@ -25,7 +25,7 @@ describe Book do
       end
     end
 
-    context 'when cover state is bad and the item is 10+ years old' do
+    context 'when cover state is bad and the item is not 10+ years old' do
       it 'returns true' do
         book = Book.new({ genre: 'Fiction', author: 'J.K. Rowling', source: 'Library',
                           label: 'Harry Potter', publish_date: '2022-06-26', publisher: 'Bloom', cover_state: 'bad' })
