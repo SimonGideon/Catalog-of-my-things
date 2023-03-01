@@ -88,7 +88,7 @@ class App
     puts 'When was the game last played[yyyy-mm-dd]?: '
     last_played_at = gets.chomp
     game = Game.new(game_info, multiplayer, last_played_at)
-   @games <<  {
+   @games << {
    :id => game.id,
    :genre => game_info.genre,
    :author => game_info.author,

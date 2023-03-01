@@ -20,5 +20,5 @@ class Game < Item
 
   def file_name
     'game.json'
-   end
+  end
 end
