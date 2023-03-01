@@ -42,7 +42,7 @@ def create_item(choice, app)
   when 5
     app.create_book
   when 6
-    create_album(app)
+    app.create_album
   when 7
     create_game(app)
   end
