@@ -78,4 +78,25 @@ class App
     game_info = GameTemplate.new(genre, author, source, label, date)
     game_info
   end
+
+  def create_game
+    game_info = get_game_info
+    puts 'Is it a multiplayer game?[y/n]: '
+    answer = gets.chomp
+    multiplayer = false
+    multiplayer = true if answer == 'y'
+    puts 'When was the game last played[yyyy-mm-dd]?: '
+    last_played_at = gets.chomp
+    game = Game.new(game_info, multiplayer, last_played_at)
+   @games <<  {
+   :id => game.id,
+   :genre => game_info.genre,
+   :author => game_info.author,
+   :source => game_info.source,
+   :label => game_info.label,
+   :date => game_info.date,
+   :multiplayer => multiplayer,
+   :last_played_at => last-played-at 
+   } 
+   end
 end
