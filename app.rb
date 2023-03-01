@@ -3,6 +3,8 @@ require_relative 'item'
 require_relative 'game'
 require_relative 'book'
 require_relative 'author'
+require_relative 'genre'
+require_relative 'music_album'
 require 'date'
 
 class App
@@ -12,6 +14,7 @@ class App
   def initialize
     @labels = []
     @books = []
+    @genres = []
   end
 
   def list_all_books
@@ -22,6 +25,23 @@ class App
         puts "#{index + 1}) Genre: #{book.genre} Author: #{book.author}"
       end
     end
+  end
+
+  def list_all_genres
+    if @genres.empty?
+      puts 'No genre exists '
+    else
+      @genres.each do |genre|
+        puts "Genres: "
+        puts "        #{genre.name}"
+      end
+    end
+  end
+
+  def genre_options
+    genre_name = gets.chomp
+    genre = Genre.new(genre_name)
+    @genres << genre
   end
 
   def list_all_labels
@@ -36,7 +56,7 @@ class App
 
   def create_book
     print "Book's genre: "
-    @genre = gets.chomp
+    @genre = genre_options
     print "Book's author: "
     @author = gets.chomp
     print "Book's source: "
@@ -49,7 +69,7 @@ class App
     publisher = gets.chomp
     print "Book's cover state (good/bad): "
     @cover_state = gets.chomp
-    book = Book.new({ genre: @genre, author: @author, source: @source, label: label, publish_date: @publish_date,
+    book = Book.new({ genre: genre, author: @author, source: @source, label: label, publish_date: @publish_date,
                       publisher: publisher, cover_state: @cover_state })
     books.push(book)
     puts 'Book created succesfully', ''
