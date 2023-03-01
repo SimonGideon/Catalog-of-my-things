@@ -6,7 +6,7 @@ require_relative 'author'
 require 'date'
 
 class App
-  attr_accessor :genre, :author, :source, :label, :publish_date, :cover_state, :choice, :labels, :books
+  attr_accessor :genre, :author, :source, :label, :publish_date, :cover_state, :choice, :labels, :books, :games
   attr_reader :id, :archived
 
   GameTemplate = Struct.new(:genre, :author, :source, :label, :publish_date)
@@ -95,19 +95,21 @@ class App
       author: game_info.author,
       source: game_info.source,
       label: game_info.label,
-      date: game_info.date,
+      date: game_info.publish_date,
       multiplayer: multiplayer,
-      last_played_at: last - played - at
+      last_played_at: last_played_at
     }
-    puts 'Grame created succesfully!'
+    game
+    puts 'Grame created successfully!'
   end
 
   def list_games
     @games.each_with_index do |game, index|
-      puts "Game #{index}"
+      puts "-------------Game #{index + 1}-------------"
       puts "Genre: #{game[:genre]}"
       puts "Author: #{game[:author]}, Source: #{game[:source]}, Label: #{game[:label]}"
       puts "Date: #{game[:date]}, Multiplayer: #{game[:multiplayer]}, Last Played Date: #{game[:last_played_at]}"
+      puts '-------------------------------------------'
     end
   end
 
