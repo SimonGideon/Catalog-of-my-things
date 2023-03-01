@@ -99,4 +99,10 @@ class App
    :last_played_at => last-played-at 
    } 
    end
+
+   def list_games
+    @games.each do |game|
+      puts "Genre: #{game[:genre]}, Author: #{game[:author]}, Source: #{game[:source]}, Label: #{game[:label]}, Date: #{game[:date]}, Multiplayer: #{game[:multiplayer]}, Last Played Date: #{game[:last_played_at]}"
+    end
+    end
 end
