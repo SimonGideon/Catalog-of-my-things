@@ -31,7 +31,8 @@ CREATE TABLE genre(
 
 CREATE TABLE music_album(
     album_id INT IDENTITY(1,1) PRIMARY KEY,
-    on_spotify boolean,
+    on_spotify boolean
+);
 
 CREATE TABLE labels (
   id SERIAL PRIMARY KEY,
