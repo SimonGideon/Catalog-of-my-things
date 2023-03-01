@@ -99,6 +99,7 @@ class App
       multiplayer: multiplayer,
       last_played_at: last - played - at
     }
+    puts 'Grame created succesfully!'
   end
 
   def list_games
