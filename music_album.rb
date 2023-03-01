@@ -9,6 +9,6 @@ class Album < Item
   end
 
   def can_be_archived?
-    super || @on_spotify
+    super && @on_spotify
   end
 end
