@@ -99,7 +99,6 @@ class App
       multiplayer: multiplayer,
       last_played_at: last_played_at
     }
-    game
     puts 'Grame created successfully!'
   end
 
