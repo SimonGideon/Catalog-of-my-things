@@ -9,6 +9,8 @@ class App
   attr_accessor :genre, :author, :source, :label, :publish_date, :cover_state, :choice, :labels, :books
   attr_reader :id, :archived
 
+  GameTemplate = Struct.new(:genre, :author, :source, :label, :publish_date)
+
   def initialize
     @labels = []
     @books = []
@@ -63,7 +65,7 @@ class App
     labels.push(label)
   end
 
-  def get_game_info
+  def game_info_g
     puts 'Genre: '
     genre = gets.chomp
     puts 'Author: '
@@ -74,13 +76,11 @@ class App
     label = gets.chomp
     puts 'Publish Date[yyyy-mm-dd]: '
     date = gets.chomp
-    GameTemplate = Struct.new(:genre, :author, :source, :label, :publish_date)
-    game_info = GameTemplate.new(genre, author, source, label, date)
-    game_info
+    GameTemplate.new(genre, author, source, label, date)
   end
 
   def create_game
-    game_info = get_game_info
+    game_info = game_info_g
     puts 'Is it a multiplayer game?[y/n]: '
     answer = gets.chomp
     multiplayer = false
@@ -88,21 +88,24 @@ class App
     puts 'When was the game last played[yyyy-mm-dd]?: '
     last_played_at = gets.chomp
     game = Game.new(game_info, multiplayer, last_played_at)
-   @games << {
-   :id => game.id,
-   :genre => game_info.genre,
-   :author => game_info.author,
-   :source => game_info.source,
-   :label => game_info.label,
-   :date => game_info.date,
-   :multiplayer => multiplayer,
-   :last_played_at => last-played-at 
-   } 
-   end
+    @games << {
+      id: game.id,
+      genre: game_info.genre,
+      author: game_info.author,
+      source: game_info.source,
+      label: game_info.label,
+      date: game_info.date,
+      multiplayer: multiplayer,
+      last_played_at: last - played - at
+    }
+  end
 
-   def list_games
-    @games.each do |game|
-      puts "Genre: #{game[:genre]}, Author: #{game[:author]}, Source: #{game[:source]}, Label: #{game[:label]}, Date: #{game[:date]}, Multiplayer: #{game[:multiplayer]}, Last Played Date: #{game[:last_played_at]}"
+  def list_games
+    @games.each_with_index do |game, index|
+      puts "Game #{index}"
+      puts "Genre: #{game[:genre]}"
+      puts "Author: #{game[:author]}, Source: #{game[:source]}, Label: #{game[:label]}"
+      puts "Date: #{game[:date]}, Multiplayer: #{game[:multiplayer]}, Last Played Date: #{game[:last_played_at]}"
     end
-    end
+  end
 end
