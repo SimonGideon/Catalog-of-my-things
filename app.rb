@@ -108,4 +108,11 @@ class App
       puts "Date: #{game[:date]}, Multiplayer: #{game[:multiplayer]}, Last Played Date: #{game[:last_played_at]}"
     end
   end
+
+  def list_all_authors
+    puts ‘’————-List of authors—————”
+    @games.each_with_index do |game, index|
+      puts "#{index}: #{game[:author]}"
+    end
+  end
 end
