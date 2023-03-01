@@ -5,7 +5,6 @@ require_relative 'book'
 require_relative 'author'
 require 'date'
 
-
 class App
   attr_accessor :genre, :author, :source, :label, :publish_date, :cover_state, :choice, :labels, :books
   attr_reader :id, :archived
