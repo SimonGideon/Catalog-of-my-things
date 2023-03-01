@@ -14,6 +14,7 @@ class App
   def initialize
     @labels = []
     @books = []
+    @games = []
   end
 
   def list_all_books
@@ -114,5 +115,9 @@ class App
     @games.each_with_index do |game, index|
       puts "#{index}: #{game[:author]}"
     end
+  end
+
+  def add_games_from_file(arr)
+    @games + arr if arr != []
   end
 end
