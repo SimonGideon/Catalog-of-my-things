@@ -25,7 +25,7 @@ def menu_choice
   gets.chomp.to_i
 end
 
-def handle_menu_choice(choice, app)
+def list_items(choice, app)
   case choice
   when 1
     app.list_all_books
@@ -37,6 +37,13 @@ def handle_menu_choice(choice, app)
     app.list_all_authors
   when 5
     app.list_games
+  end
+end
+
+def handle_menu_choice(choice, app)
+  case choice
+  when 1, 2, 3, 4, 5
+    list_items(choice, app)
   when 6, 7, 8
     create_item(choice, app)
   when 9
