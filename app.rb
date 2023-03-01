@@ -110,7 +110,7 @@ class App
   end
 
   def list_all_authors
-    puts ‘’————-List of authors—————”
+    puts '————-List of authors—————'
     @games.each_with_index do |game, index|
       puts "#{index}: #{game[:author]}"
     end
