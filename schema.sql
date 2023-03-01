@@ -2,12 +2,14 @@ CREATE DATABASE catalogs;
 
 CREATE TABLE item(
     id int NOT NULL PRIMARY KEY,
-    author_id int NOT NULL REFERENCES author(id) ON DELETE cascade,
-    genre VARCHAR(255) NOT NULL,
+    genre-album-schema
+    author_id int NOT NULL REFERENCES author(id) ON DELETE cascade
+    genre_id int NOT NULL,
     source VARCHAR(255) NOT NULL,
     label_id INTEGER REFERENCES labels(id) ON DELETE CASCADE,
     publish_date DATE,
     archived BOOL
+    FOREIGN KEY (genre_id) REFERENCES genre(genre_id),
 );
 
 CREATE TABLE game(
@@ -20,6 +22,16 @@ CREATE TABLE author(
     id INT NOT NULL PRIMARY KEY,
     first_name varchar(50),
     last_name varchar(50)
+);
+
+CREATE TABLE genre(
+    genre_id INT IDENTITY(1,1) PRIMARY KEY,
+    name varchar(50)
+);
+
+CREATE TABLE music_album(
+    album_id INT IDENTITY(1,1) PRIMARY KEY,
+    on_spotify boolean
 );
 
 CREATE TABLE labels (
