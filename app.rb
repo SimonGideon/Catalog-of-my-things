@@ -62,4 +62,20 @@ class App
     label = Label.new(label_title, label_color)
     labels.push(label)
   end
+
+  def get_game_info
+    puts 'Genre: '
+    genre = gets.chomp
+    puts 'Author: '
+    author = gets.chomp
+    puts 'Source: '
+    source = gets.chomp
+    puts 'Label: '
+    label = gets.chomp
+    puts 'Publish Date[yyyy-mm-dd]: '
+    date = gets.chomp
+    GameTemplate = Struct.new(:genre, :author, :source, :label, :publish_date)
+    game_info = GameTemplate.new(genre, author, source, label, date)
+    game_info
+  end
 end
