@@ -121,6 +121,6 @@ class App
   end
 
   def add_games_from_file(arr)
-    @games + arr if arr != []
+    @games += arr if arr != []
   end
 end
