@@ -130,14 +130,7 @@ class App
       end
     end
   end
-
-  # this has not implemented on the UI options menu
-  def list_all_albums
-    @music_album.each do |music|
-      puts "Title: #{music.title} | Produced on: #{music.publish_date}"
-    end
-  end
-
+  
   def create_book
     print "Book's genre: "
     @genre = genre_options
