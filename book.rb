@@ -14,4 +14,18 @@ class Book < Item
 
     false
   end
+
+  def to_hash
+    {
+      'id' => @id,
+      'genre' => @genre.map(&:to_hash),
+      'author' => @author,
+      'source' => @source,
+      'label' => @label.map(&:to_hash),
+      'publish_date' => @publish_date.to_s,
+      'archived' => @archived,
+      'publisher' => @publisher,
+      'cover_state' => @cover_state
+    }
+  end
 end

@@ -14,10 +14,10 @@ class Album < Item
 
   def to_hash
     {
-      genre: @genre,
+      genre: @genre.map(&:to_hash),
       author: @author,
       source: @source,
-      label: @label,
+      label: @label.map(&:to_hash),
       publish_date: @publish_date,
       on_spotify: @on_spotify
     }
