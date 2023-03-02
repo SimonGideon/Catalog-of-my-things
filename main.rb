@@ -1,6 +1,7 @@
 require_relative 'app'
 require_relative 'files_manager'
 require_relative 'game'
+require_relative 'book'
 
 @file_manager = FileManager.new
 GameTemplate = Struct.new(:genre, :author, :source, :label, :publish_date)
@@ -59,10 +60,9 @@ end
 def create_item(choice, app)
   case choice
   when 6
-    app.create_album
     app.create_book
   when 7
-    app.create_album(app)
+    app.create_album
   when 8
     app.create_game
   end
