@@ -17,7 +17,7 @@ class Album < Item
       genre: @genre.map(&:to_hash),
       author: @author,
       source: @source,
-      label: @label.map(&:to_h),
+      label: @label.map(&:to_hash),
       publish_date: @publish_date,
       on_spotify: @on_spotify
     }
