@@ -6,12 +6,15 @@ require_relative 'author'
 require 'date'
 
 class App
-  attr_accessor :genre, :author, :source, :label, :publish_date, :cover_state, :choice, :labels, :books
+  attr_accessor :genre, :author, :source, :label, :publish_date, :cover_state, :choice, :labels, :books, :games
   attr_reader :id, :archived
+
+  GameTemplate = Struct.new(:genre, :author, :source, :label, :publish_date)
 
   def initialize
     @labels = []
     @books = []
+    @games = []
   end
 
   def list_all_books
@@ -61,5 +64,62 @@ class App
     label_color = gets.chomp
     label = Label.new(label_title, label_color)
     labels.push(label)
+  end
+
+  def game_info_g
+    puts 'Genre: '
+    genre = gets.chomp
+    puts 'Author: '
+    author = gets.chomp
+    puts 'Source: '
+    source = gets.chomp
+    puts 'Label: '
+    label = gets.chomp
+    puts 'Publish Date[yyyy-mm-dd]: '
+    date = gets.chomp
+    GameTemplate.new(genre, author, source, label, date)
+  end
+
+  def create_game
+    game_info = game_info_g
+    puts 'Is it a multiplayer game?[y/n]: '
+    answer = gets.chomp
+    multiplayer = false
+    multiplayer = true if answer == 'y'
+    puts 'When was the game last played[yyyy-mm-dd]?: '
+    last_played_at = gets.chomp
+    game = Game.new(game_info, multiplayer, last_played_at)
+    @games << {
+      id: game.id,
+      genre: game_info.genre,
+      author: game_info.author,
+      source: game_info.source,
+      label: game_info.label,
+      date: game_info.publish_date,
+      multiplayer: multiplayer,
+      last_played_at: last_played_at
+    }
+    puts 'Grame created successfully!'
+  end
+
+  def list_games
+    @games.each_with_index do |game, index|
+      puts "-------------Game #{index + 1}-------------"
+      puts "Genre: #{game[:genre]}"
+      puts "Author: #{game[:author]}, Source: #{game[:source]}, Label: #{game[:label]}"
+      puts "Date: #{game[:date]}, Multiplayer: #{game[:multiplayer]}, Last Played Date: #{game[:last_played_at]}"
+      puts '-------------------------------------------'
+    end
+  end
+
+  def list_all_authors
+    puts '————-List of authors—————'
+    @games.each_with_index do |game, index|
+      puts "#{index}: #{game[:author]}"
+    end
+  end
+
+  def add_games_from_file(arr)
+    @games += arr if arr != []
   end
 end

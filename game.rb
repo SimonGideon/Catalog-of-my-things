@@ -17,4 +17,8 @@ class Game < Item
 
     false
   end
+
+  def file_name
+    'games.json'
+  end
 end
