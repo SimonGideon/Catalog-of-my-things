@@ -6,6 +6,7 @@ require_relative 'author'
 require_relative 'genre'
 require_relative 'music_album'
 require 'date'
+require 'json'
 
 class App
   attr_accessor :genre, :author, :source, :label, :publish_date, :cover_state, :choice, :labels, :books
@@ -89,6 +90,41 @@ class App
     else
       puts 'Invalid input, please try again'
       on_spotify_option
+    end
+  end
+
+  def save_data
+    puts @music_album
+    puts @genres
+    all_data = [@genres, @music_album]
+    file_paths = ['./genre.json', './music_album.json', './module/rentals.json']
+
+    # Iterate on both arrays
+    all_data.zip(file_paths).each do |data, file_path|
+      saver = JsonHandler.new(data, file_path)
+      saver.save
+    end
+  end
+
+  class JsonHandler
+    def initialize(data, file_path)
+      @data = data
+      @file_path = file_path
+    end
+
+    def save
+      # format the data
+      opts = {
+        array_nl: "\n",
+        object_nl: "\n",
+        indent: '  ',
+        space_before: ' ',
+        space: ' '
+      }
+      # creates the files if doesnt exits and writes on them.
+      File.open(@file_path, 'a') do |file|
+        file.write(JSON.pretty_generate(@data.map(&:to_hash), opts))
+      end
     end
   end
 

@@ -30,6 +30,7 @@ def handle_menu_choice(choice, app)
   when 5, 6, 7
     create_item(choice, app)
   when 8
+    app.save_data
     return true
   else
     puts 'Invalid option entered'
