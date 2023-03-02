@@ -97,7 +97,6 @@ class App
   end
 
   def save_data
-    puts 'Data saved successfully'
     all_data = [@genres, @music_album, @books, @labels]
     file_paths = ['./genre.json', './music_album.json', './books.json', './labels.json']
 
@@ -106,6 +105,7 @@ class App
       saver = JsonHandler.new(data, file_path)
       saver.save
     end
+    puts 'Data saved successfully'
   end
 
   class JsonHandler
