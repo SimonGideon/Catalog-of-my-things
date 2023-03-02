@@ -67,7 +67,9 @@ class App
     print 'Music production date (yyyy-mm-dd): '
     production_date = gets.chomp
     on_spotify = on_spotify_option
-    album = Album.new(genre: genre, author: author, source: source, label: label, publish_date: production_date, on_spotify: on_spotify)
+    music_album = Struct.new(:genre, :author, :source, :label, :publish_date)
+    album_info = music_album.new(genre, author, source, label, production_date)
+    album = Album.new(album_info, on_spotify: on_spotify)
     @music_album << album
   end
 
