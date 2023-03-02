@@ -46,10 +46,9 @@ def handle_menu_choice(choice, app)
     list_items(choice, app)
   when 6, 7, 8
     create_item(choice, app)
-  when 8
-    app.save_data
   when 9
     @file_manager.write_on_file(@game.file_name, app.games)
+    app.save_data
     return true
   else
     puts 'Invalid option entered'
