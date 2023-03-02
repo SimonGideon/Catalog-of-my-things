@@ -110,6 +110,18 @@ To run the project, execute the following commands in your Ruby terminal:
 - GitHub: [@sebalp100](https://github.com/sebalp100)
 - LinkedIn: [Sebastian Martin](https://www.linkedin.com/in/sebastian-martin-956b2724a/)
 
+👤 **Simon Gideon**
+
+- GitHub: [@SimonGideon](https://github.com/SimonGideon)
+- Twitter: [@Simo_Giddy](https://twitter.com/Simo_Giddy)
+- LinkedIn: [mnayi-gideon](https://linkedin.com/in/mnayi-gideon)
+
+👤 **Enoque Jonas**
+
+- GitHub: [@enoqueJonas](https://github.com/enoqueJonas)
+- Twitter: [@enoque_jonas](https://twitter.com/_enoqueJonas)
+- LinkedIn: [@Enoque Macanda](https://www.linkedin.com/mwlite/in/enoque-macanda) 
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- FUTURE FEATURES -->
