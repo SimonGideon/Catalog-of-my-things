@@ -4,11 +4,22 @@ class Album < Item
   attr_accessor :on_spotify
 
   def initialize(album_info, on_spotify)
-    super(*album_info.to_a)
+    super(album_info.genre, album_info.author, album_info.source, album_info.label, album_info.publish_date)
     @on_spotify = on_spotify
   end
 
   def can_be_archived?
     super && @on_spotify
+  end
+
+  def to_hash
+    {
+      genre: @genre,
+      author: @author,
+      source: @source,
+      label: @label,
+      publish_date: @publish_date,
+      on_spotify: @on_spotify
+    }
   end
 end

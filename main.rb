@@ -48,6 +48,7 @@ def handle_menu_choice(choice, app)
     create_item(choice, app)
   when 9
     @file_manager.write_on_file(@game.file_name, app.games)
+    app.save_data
     return true
   else
     puts 'Invalid option entered'
@@ -58,6 +59,7 @@ end
 def create_item(choice, app)
   case choice
   when 6
+    app.create_album
     app.create_book
   when 7
     app.create_album(app)
