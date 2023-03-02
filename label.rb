@@ -16,7 +16,7 @@ class Label
     item.label = self
   end
 
-  def to_h
+  def to_hash
     {
       'id' => @id,
       'title' => @title,

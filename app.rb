@@ -26,8 +26,8 @@ class App
     if books.empty?
       puts 'No books found'
     else
-      books.each_with_index do |book, index|
-        puts "#{index + 1}) Genre: #{book.genre} Author: #{book.author}"
+      @books.each_with_index do |book, index|
+        puts "#{index + 1}) Author: #{book.author} | Publisher: #{book.publisher}"
       end
     end
   end
@@ -97,10 +97,9 @@ class App
   end
 
   def save_data
-    puts @music_album
-    puts @genres
-    all_data = [@genres, @music_album]
-    file_paths = ['./genre.json', './music_album.json', './module/rentals.json']
+    puts 'Data saved successfully'
+    all_data = [@genres, @music_album, @books, @labels]
+    file_paths = ['./genre.json', './music_album.json', './books.json', './labels.json']
 
     # Iterate on both arrays
     all_data.zip(file_paths).each do |data, file_path|
@@ -130,7 +129,7 @@ class App
       end
     end
   end
-  
+
   def create_book
     print "Book's genre: "
     @genre = genre_options
