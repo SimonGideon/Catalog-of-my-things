@@ -15,6 +15,7 @@ class App
     @labels = []
     @books = []
     @genres = []
+    @music_album = []
   end
 
   def list_all_books
@@ -32,7 +33,7 @@ class App
       puts 'No genre exists '
     else
       @genres.each do |genre|
-        puts "Genres: "
+        puts 'Genres: '
         puts "        #{genre.name}"
       end
     end
@@ -51,6 +52,48 @@ class App
       labels.each do |label|
         puts "Title: #{label.title} | Color: #{label.color}"
       end
+    end
+  end
+
+  def create_album
+    print 'Music genre: '
+    genre = genre_options
+    print 'Music Artist: '
+    author = gets.chomp
+    print 'Music Source: '
+    source = gets.chomp
+    print 'Add Music Label: '
+    label = label_options
+    print 'Music production date (yyyy-mm-dd): '
+    production_date = gets.chomp
+    on_spotify = on_spotify_option
+    album = Album.new(genre: genre, author: author, source: source, label: label, publish_date: production_date, on_spotify: on_spotify)
+    @music_album << album
+  end
+
+  def on_spotify_option
+    print 'Is Music on Spotify? '
+    print 'Yes/No: '
+    on_spotify = gets.chomp
+    check_spotify(on_spotify)
+  end
+
+  def check_spotify(on_spotify)
+    case on_spotify.downcase
+    when 'yes'
+      true
+    when 'no'
+      false
+    else
+      puts 'Invalid input, please try again'
+      on_spotify_option
+    end
+  end
+
+  # this has not implemented on the UI options menu
+  def list_all_albums
+    @music_album.each do |music|
+      puts "Title: #{music.title} | Produced on: #{music.publish_date}"
     end
   end
 
