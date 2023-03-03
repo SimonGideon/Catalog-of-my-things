@@ -1,40 +1,12 @@
 [
-
-][
-
-][
   {
-    "id" : 243,
-    "title" : "erer",
-    "color" : "erer",
-    "items" : [
-
-    ]
-  }
-][
-  {
-    "id" : 277,
-    "title" : "dfdf",
-    "color" : "dfdfd",
-    "items" : [
-
-    ]
-  }
-][
-  {
-    "id" : 961,
-    "title" : "Escalate",
-    "color" : "Blue",
-    "items" : [
-
-    ]
+    "id" : 396,
+    "title" : "Green",
+    "color" : "Green"
   },
   {
-    "id" : 292,
-    "title" : "Redit",
-    "color" : "Green",
-    "items" : [
-
-    ]
+    "id" : 789,
+    "title" : "Old",
+    "color" : "blue"
   }
 ]

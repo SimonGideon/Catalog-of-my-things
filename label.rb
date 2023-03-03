@@ -20,8 +20,7 @@ class Label
     {
       'id' => @id,
       'title' => @title,
-      'color' => @color,
-      'items' => @items.map(&:to_h)
+      'color' => @color
     }
   end
 end
