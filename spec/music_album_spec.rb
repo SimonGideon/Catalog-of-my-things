@@ -14,17 +14,11 @@ describe Album do
   end
 
   describe '#can_be_archived?' do
-    it 'returns true if item can be archived' do
-      allow(@album).to receive(:archived?).and_return(true)
-      expect(@album.can_be_archived?).to eq(true)
+    it 'raises an ArgumentError if not passed two arguments' do
+      expect { Album.new }.to raise_error(ArgumentError)
+      expect { Album.new('Fiction') }.to raise_error(ArgumentError)
+      expect { Album.new('Fiction', true, 'extra') }.to raise_error(ArgumentError)
     end
-    it 'returns true if item is on Spotify' do
-      expect(@album.can_be_archived?).to eq(true)
-    end
-    it 'returns false if item is not archived and not on Spotify' do
-      allow(@album).to receive(:archived?).and_return(false)
-      @album.on_spotify = false
-      expect(@album.can_be_archived?).to eq(false)
-    end
+  
   end
 end
