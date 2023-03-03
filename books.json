@@ -1,46 +1,68 @@
 [
   {
-    "id" : 105,
-    "genre" : "Action",
+    "id" : 835,
+    "genre" : "asdasd",
+    "author" : "asdas",
+    "source" : "asdas",
+    "label" : "asda",
+    "publish_date" : "2002-10-10",
+    "archived" : false,
+    "publisher" : "asdsad",
+    "cover_state" : "bad"
+  },
+  {
+    "id" : 99,
+    "genre" : "asdasd",
     "author" : "asdasd",
+    "source" : "2131231",
+    "label" : "asdada",
+    "publish_date" : "2002-10-10",
+    "archived" : false,
+    "publisher" : "asdas",
+    "cover_state" : "bad"
+  },
+  {
+    "id" : 34,
+    "genre" : "Action",
+    "author" : "asdads",
     "source" : "asda",
-    "label" : "asdad",
+    "label" : "asdsa",
+    "publish_date" : "2002-10-10",
+    "archived" : false,
+    "publisher" : "asdsad",
+    "cover_state" : "bad"
+  },
+  {
+    "id" : 845,
+    "genre" : "asdsa",
+    "author" : "asd",
+    "source" : "asdsa",
+    "label" : "Label",
+    "publish_date" : "2002-10-10",
+    "archived" : false,
+    "publisher" : "asdsa",
+    "cover_state" : "bad"
+  },
+  {
+    "id" : 834,
+    "genre" : "asdasd",
+    "author" : "asdsa",
+    "source" : "asdadab",
+    "label" : "asdasd",
     "publish_date" : "2002-10-10",
     "archived" : false,
     "publisher" : "asdad",
     "cover_state" : "bad"
   },
   {
-    "id" : 668,
-    "genre" : "Action",
-    "author" : "asdasd",
+    "id" : 966,
+    "genre" : "asdsa",
+    "author" : "asdsa",
     "source" : "asda",
-    "label" : "asdad",
+    "label" : "ACtion",
     "publish_date" : "2002-10-10",
     "archived" : false,
-    "publisher" : "asdad",
-    "cover_state" : "bad"
-  },
-  {
-    "id" : 142,
-    "genre" : "Action",
-    "author" : "asdasd",
-    "source" : "asda",
-    "label" : "asdad",
-    "publish_date" : "2002-10-10",
-    "archived" : false,
-    "publisher" : "asdad",
-    "cover_state" : "bad"
-  },
-  {
-    "id" : 454,
-    "genre" : "Action",
-    "author" : "asdasd",
-    "source" : "asda",
-    "label" : "asdad",
-    "publish_date" : "2002-10-10",
-    "archived" : false,
-    "publisher" : "asdad",
+    "publisher" : "asdas",
     "cover_state" : "bad"
   }
 ]

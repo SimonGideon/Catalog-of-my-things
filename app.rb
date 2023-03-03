@@ -50,10 +50,10 @@ class App
   end
 
   def list_all_labels
-    if labels.empty?
+    if @labels.empty?
       puts 'No labels found'
     else
-      labels.each do |label|
+      @labels.each do |label|
         puts "Title: #{label.title} | Color: #{label.color}"
       end
     end
@@ -149,20 +149,28 @@ class App
     end
   end
 
-  def load_data
-    @books = load_data_from_file('./books.json').map { |data| Book.new(data) }
-    puts 'Data loaded successfully'
-  rescue StandardError => e
-    puts "Error loading data: #{e.message}"
-  end
-
   def load_data_from_file(file_path)
     return [] unless File.file?(file_path)
 
     file_data = File.read(file_path)
     return [] if file_data.strip.empty?
 
-    JSON.parse(file_data, symbolize_names: true)
+    saved_data = JSON.parse(file_data, symbolize_names: true)
+
+    case file_path
+    when './labels.json'
+      labels_titles = saved_data.map { |data| { color: data[:color], title: data[:title] } }
+      puts(labels_titles.map { |data| "#{data[:title]}: #{data[:color]}" })
+    when './books.json'
+      books_titles = saved_data.map { |data| { genre: data[:genre], author: data[:author] } }
+      puts(books_titles.map { |data| "#{data[:author]}: #{data[:genre]}" })
+    when './music_album.json'
+      music_album = saved_data.map { |data| { author: data[:author], date: data[:date], on_spotify: data[:on_spotify] } }
+      puts(music_album.map { |data| "#{data[:author]}: #{data[:date]} #{data[:on_spotify]}" })
+    when './genre.json'
+      genre_data = saved_data.map { |data| { name: data[:name] } }
+      puts(genre_data.map { |data| (data[:name]).to_s })
+    end
   end
 
   def list_all_music_albums
