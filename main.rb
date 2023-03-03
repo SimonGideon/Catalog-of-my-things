@@ -74,6 +74,7 @@ end
 def main
   app = App.new
   app.add_games_from_file(@file_manager.read_from_file(@game.file_name))
+  app.load_data
   quit = false
   until quit
     display_menu

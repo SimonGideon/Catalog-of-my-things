@@ -149,6 +149,22 @@ class App
     end
   end
 
+  def load_data
+    @books = load_data_from_file('./books.json').map { |data| Book.new(data) }
+    puts 'Data loaded successfully'
+  rescue StandardError => e
+    puts "Error loading data: #{e.message}"
+  end
+
+  def load_data_from_file(file_path)
+    return [] unless File.file?(file_path)
+
+    file_data = File.read(file_path)
+    return [] if file_data.strip.empty?
+
+    JSON.parse(file_data, symbolize_names: true)
+  end
+
   def list_all_music_albums
     if @music_album.empty?
       puts 'No album found'

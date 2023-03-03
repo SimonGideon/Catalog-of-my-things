@@ -1,24 +1,46 @@
 [
   {
-    "id" : 168,
-    "genre" : "sdsds",
-    "author" : "fgrrt",
-    "source" : "tyytyty",
-    "label" : "tytyt",
-    "publish_date" : "2020-04-02",
+    "id" : 105,
+    "genre" : "Action",
+    "author" : "asdasd",
+    "source" : "asda",
+    "label" : "asdad",
+    "publish_date" : "2002-10-10",
     "archived" : false,
-    "publisher" : "sdsdf",
+    "publisher" : "asdad",
     "cover_state" : "bad"
   },
   {
-    "id" : 740,
-    "genre" : "sdsds",
-    "author" : "sdsd",
-    "source" : "sdsds",
-    "label" : "sddsd",
-    "publish_date" : "2020-09-08",
+    "id" : 668,
+    "genre" : "Action",
+    "author" : "asdasd",
+    "source" : "asda",
+    "label" : "asdad",
+    "publish_date" : "2002-10-10",
     "archived" : false,
-    "publisher" : "sdsdsd",
-    "cover_state" : "sbad"
+    "publisher" : "asdad",
+    "cover_state" : "bad"
+  },
+  {
+    "id" : 142,
+    "genre" : "Action",
+    "author" : "asdasd",
+    "source" : "asda",
+    "label" : "asdad",
+    "publish_date" : "2002-10-10",
+    "archived" : false,
+    "publisher" : "asdad",
+    "cover_state" : "bad"
+  },
+  {
+    "id" : 454,
+    "genre" : "Action",
+    "author" : "asdasd",
+    "source" : "asda",
+    "label" : "asdad",
+    "publish_date" : "2002-10-10",
+    "archived" : false,
+    "publisher" : "asdad",
+    "cover_state" : "bad"
   }
 ]
