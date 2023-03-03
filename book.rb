@@ -16,10 +16,10 @@ class Book < Item
   def to_hash
     {
       'id' => @id,
-      'genre' => @genre.map(&:to_hash),
+      'genre' => @genre,
       'author' => @author,
       'source' => @source,
-      'label' => @label.map(&:to_hash),
+      'label' => @label,
       'publish_date' => @publish_date.to_s,
       'archived' => @archived,
       'publisher' => @publisher,
@@ -27,3 +27,4 @@ class Book < Item
     }
   end
 end
+

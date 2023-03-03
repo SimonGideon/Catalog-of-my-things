@@ -165,22 +165,23 @@ class App
     print "Book's genre: "
     @genre = genre_options
     print "Book's author: "
-    @author = gets.chomp
+    author = gets.chomp
     print "Book's source: "
-    @source = gets.chomp
+    source = gets.chomp
     print "Book's label title: "
     label = label_options
     print "Book's publish date (yyyy-mm-dd): "
-    @publish_date = gets.chomp
+    publish_date = gets.chomp
     print "Book's publisher: "
     publisher = gets.chomp
     print "Book's cover state (good/bad): "
-    @cover_state = gets.chomp
-    book = Book.new({ genre: genre, author: @author, source: @source, label: label, publish_date: @publish_date,
-                      publisher: publisher, cover_state: @cover_state })
+    cover_state = gets.chomp
+    book = Book.new({ genre: @genre[0].name, author: author, source: source, label: label[0].title, publish_date: publish_date,
+                      publisher: publisher, cover_state: cover_state })
     books.push(book)
     puts 'Book created succesfully', ''
   end
+  
 
   def label_options
     label_title = gets.chomp
