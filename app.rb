@@ -74,7 +74,16 @@ class App
     music_album = Struct.new(:genre, :author, :source, :label, :publish_date)
     album_info = music_album.new(genre, author, source, label, production_date)
     album = Album.new(album_info, on_spotify: on_spotify)
-    @music_album << album
+    @music_album << {
+      id: album.id,
+      genre: album_info.genre[0].name,
+      author: album_info.author,
+      source: album_info.source,
+      label: album_info.label[0].title,
+      date: album_info.publish_date,
+      on_spotify: on_spotify
+    }
+    puts 'Album created successfully'
   end
 
   def on_spotify_option
@@ -113,7 +122,7 @@ class App
       @data = data
       @file_path = file_path
     end
-
+  
     def save
       # format the data
       opts = {
@@ -123,13 +132,24 @@ class App
         space_before: ' ',
         space: ' '
       }
-      # creates the files if doesnt exits and writes on them.
-      File.open(@file_path, 'a') do |file|
-        file.write(JSON.pretty_generate(@data.map(&:to_hash), opts))
+      # read the existing data from the file
+      existing_data = []
+      if File.file?(@file_path)
+        file_data = File.read(@file_path)
+        existing_data = JSON.parse(file_data) if !file_data.strip.empty?
       end
+      # append the new data to it
+      if existing_data.is_a?(Array)
+        existing_data += @data.map(&:to_hash)
+      else
+        existing_data = existing_data + [@data.map(&:to_hash)]
+      end
+      # overwrite the file with the updated data
+      File.write(@file_path, JSON.pretty_generate(existing_data, opts))
     end
+    
   end
-
+  
   def list_all_music_albums
     if @music_album.empty?
       puts 'No album found'
