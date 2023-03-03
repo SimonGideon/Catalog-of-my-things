@@ -30,17 +30,17 @@ end
 def list_items(choice, app)
   case choice
   when 1
-    app.list_all_books
+    app.load_data_from_file('./books.json')
   when 2
-    app.list_all_genres
+    app.load_data_from_file('./genre.json')
   when 3
-    app.list_all_labels
+    app.load_data_from_file('./labels.json')
   when 4
     app.list_all_authors
   when 5
     app.list_games
   when 6
-    app.list_all_music_albums
+    app.load_data_from_file('./music_album.json')
   end
 end
 
@@ -50,9 +50,9 @@ def handle_menu_choice(choice, app)
     list_items(choice, app)
   when 7, 8, 9
     create_item(choice, app)
+    app.save_data
   when 10
     @file_manager.write_on_file(@game.file_name, app.games)
-    app.save_data
     return true
   else
     puts 'Invalid option entered'

@@ -1,37 +1,24 @@
 [
   {
-    "id" : 378,
-    "genre" : [
-      {
-        "name" : "Fiction"
-      },
-      {
-        "name" : "Reggae"
-      }
-    ],
-    "author" : "Marky M",
-    "source" : "Stanford",
-    "label" : [
-      {
-        "id" : 961,
-        "title" : "Escalate",
-        "color" : "Blue",
-        "items" : [
-
-        ]
-      },
-      {
-        "id" : 292,
-        "title" : "Redit",
-        "color" : "Green",
-        "items" : [
-
-        ]
-      }
-    ],
-    "publish_date" : "2020-04-04",
+    "id" : 981,
+    "genre" : "Horror",
+    "author" : "SK",
+    "source" : "Library",
+    "label" : "Green",
+    "publish_date" : "2022-10-10",
     "archived" : false,
-    "publisher" : "Long Horn",
+    "publisher" : "KJS",
     "cover_state" : "good"
+  },
+  {
+    "id" : 697,
+    "genre" : "Action",
+    "author" : "KS",
+    "source" : "Li",
+    "label" : "Old",
+    "publish_date" : "2021-10-10",
+    "archived" : false,
+    "publisher" : "Asd",
+    "cover_state" : "bad"
   }
 ]

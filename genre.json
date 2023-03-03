@@ -1,8 +1,10 @@
 [
   {
-    "name" : "Fiction"
+    "id" : 574,
+    "name" : "Horror"
   },
   {
-    "name" : "Reggae"
+    "id" : 472,
+    "name" : "Action"
   }
 ]
