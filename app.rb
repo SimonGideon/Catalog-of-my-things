@@ -159,18 +159,34 @@ class App
 
     case file_path
     when './labels.json'
-      labels_titles = saved_data.map { |data| { color: data[:color], title: data[:title] } }
-      puts(labels_titles.map { |data| "#{data[:title]} (#{data[:color]})" })
+      display_labels(saved_data)
     when './books.json'
-      books_titles = saved_data.map { |data| { genre: data[:genre], author: data[:author] } }
-      puts(books_titles.map { |data| "Author:#{data[:author]} | Genre:#{data[:genre]}" })
+      display_books(saved_data)
     when './music_album.json'
-      music_album = saved_data.map { |data| { author: data[:author], date: data[:date], on_spotify: data[:on_spotify] } }
-      puts(music_album.map { |data| "Author:#{data[:author]} | Publish date: #{data[:date]} | On Spotify?:#{data[:on_spotify]}" })
+      display_music_album(saved_data)
     when './genre.json'
-      genre_data = saved_data.map { |data| { name: data[:name] } }
-      puts(genre_data.map { |data| (data[:name]).to_s })
+      display_genre(saved_data)
     end
+  end
+
+  def display_labels(data)
+    labels_titles = data.map { |label| { color: label[:color], title: label[:title] } }
+    puts(labels_titles.map { |label| "#{label[:title]} (#{label[:color]})" })
+  end
+
+  def display_books(data)
+    books_titles = data.map { |book| { genre: book[:genre], author: book[:author] } }
+    puts(books_titles.map { |book| "Author:#{book[:author]} | Genre:#{book[:genre]}" })
+  end
+
+  def display_music_album(data)
+    music_albums = data.map { |album| { author: album[:author], date: album[:date], on_spotify: album[:on_spotify] } }
+    puts(music_albums.map { |album| "Author:#{album[:author]} | Publish date: #{album[:date]} | On Spotify?:#{album[:on_spotify]}" })
+  end
+
+  def display_genre(data)
+    genres = data.map { |genre| { name: genre[:name] } }
+    puts(genres.map { |genre| genre[:name].to_s })
   end
 
   def list_all_music_albums
