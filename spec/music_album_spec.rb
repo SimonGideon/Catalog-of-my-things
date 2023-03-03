@@ -19,6 +19,5 @@ describe Album do
       expect { Album.new('Fiction') }.to raise_error(ArgumentError)
       expect { Album.new('Fiction', true, 'extra') }.to raise_error(ArgumentError)
     end
-  
   end
 end
