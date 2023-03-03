@@ -27,4 +27,3 @@ class Book < Item
     }
   end
 end
-
