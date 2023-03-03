@@ -11,8 +11,6 @@ class Book < Item
 
   def can_be_archived?
     super || @cover_state == 'bad'
-
-    false
   end
 
   def to_hash
