@@ -9,5 +9,16 @@
     "archived" : false,
     "publisher" : "sdsdf",
     "cover_state" : "bad"
+  },
+  {
+    "id" : 740,
+    "genre" : "sdsds",
+    "author" : "sdsd",
+    "source" : "sdsds",
+    "label" : "sddsd",
+    "publish_date" : "2020-09-08",
+    "archived" : false,
+    "publisher" : "sdsdsd",
+    "cover_state" : "sbad"
   }
 ]
