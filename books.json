@@ -9,5 +9,16 @@
     "archived" : false,
     "publisher" : "KJS",
     "cover_state" : "good"
+  },
+  {
+    "id" : 697,
+    "genre" : "Action",
+    "author" : "KS",
+    "source" : "Li",
+    "label" : "Old",
+    "publish_date" : "2021-10-10",
+    "archived" : false,
+    "publisher" : "Asd",
+    "cover_state" : "bad"
   }
 ]
