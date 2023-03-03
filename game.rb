@@ -20,4 +20,3 @@ class Game < Item
     'games.json'
   end
 end
-
