@@ -24,9 +24,8 @@ class Item
   private
 
   def can_be_archived?
-    age_in_years = Date.today.year - @publish_date.year
-    return true if age_in_years >= 10
-
-    false
+    today = Date.today
+    ten_years_ago = Date.new(today.year - 10, today.month, today.day)
+    @published_date < ten_years_ago
   end
 end
