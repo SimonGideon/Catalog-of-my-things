@@ -1,37 +1,26 @@
 [
   {
-    "id" : 378,
+    "id" : 605,
     "genre" : [
       {
-        "name" : "Fiction"
-      },
-      {
-        "name" : "Reggae"
+        "name" : "dfdfdf"
       }
     ],
-    "author" : "Marky M",
-    "source" : "Stanford",
+    "author" : "dfdfd",
+    "source" : "dfdfd",
     "label" : [
       {
-        "id" : 961,
-        "title" : "Escalate",
-        "color" : "Blue",
-        "items" : [
-
-        ]
-      },
-      {
-        "id" : 292,
-        "title" : "Redit",
-        "color" : "Green",
+        "id" : 447,
+        "title" : "dfdf",
+        "color" : "dfdf",
         "items" : [
 
         ]
       }
     ],
-    "publish_date" : "2020-04-04",
+    "publish_date" : "2020-08-07",
     "archived" : false,
-    "publisher" : "Long Horn",
-    "cover_state" : "good"
+    "publisher" : "sdsd",
+    "cover_state" : "bad"
   }
 ]
