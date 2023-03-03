@@ -22,16 +22,6 @@ class App
     @games = []
   end
 
-  def list_all_books
-    if books.empty?
-      puts 'No books found'
-    else
-      @books.each_with_index do |book, index|
-        puts "#{index + 1}) Author: #{book.author} | Publisher: #{book.publisher}"
-      end
-    end
-  end
-
   def list_all_genres
     if @genres.empty?
       puts 'No genre exists '
@@ -109,7 +99,6 @@ class App
     all_data = [@genres, @music_album, @books, @labels]
     file_paths = ['./genre.json', './music_album.json', './books.json', './labels.json']
 
-    # Iterate on both arrays
     all_data.zip(file_paths).each do |data, file_path|
       saver = JsonHandler.new(data, file_path)
       saver.save
@@ -124,7 +113,6 @@ class App
     end
 
     def save
-      # format the data
       opts = {
         array_nl: "\n",
         object_nl: "\n",
@@ -132,45 +120,31 @@ class App
         space_before: ' ',
         space: ' '
       }
-      # read the existing data from the file
+
       existing_data = []
       if File.file?(@file_path)
         file_data = File.read(@file_path)
         existing_data = JSON.parse(file_data) unless file_data.strip.empty?
       end
-      # append the new data to it
+
       existing_data += if existing_data.is_a?(Array)
                          @data.map(&:to_hash)
                        else
                          [@data.map(&:to_hash)]
                        end
-      # overwrite the file with the updated data
+
       File.write(@file_path, JSON.pretty_generate(existing_data, opts))
     end
   end
 
   def load_data_from_file(file_path)
-    return [] unless File.file?(file_path)
+    return puts 'No data availabe' unless file_exists?(file_path)
 
-    file_data = File.read(file_path)
-    return [] if file_data.strip.empty?
+    file_data = read_file_data(file_path)
+    return puts 'No data availabe' if file_data.empty?
 
     saved_data = JSON.parse(file_data, symbolize_names: true)
-
-    case file_path
-    when './labels.json'
-      labels_titles = saved_data.map { |data| { color: data[:color], title: data[:title] } }
-      puts(labels_titles.map { |data| "#{data[:title]} (#{data[:color]})" })
-    when './books.json'
-      books_titles = saved_data.map { |data| { genre: data[:genre], author: data[:author] } }
-      puts(books_titles.map { |data| "Author:#{data[:author]} | Genre:#{data[:genre]}" })
-    when './music_album.json'
-      music_album = saved_data.map { |data| { author: data[:author], date: data[:date], on_spotify: data[:on_spotify] } }
-      puts(music_album.map { |data| "Author:#{data[:author]} | Publish date: #{data[:date]} | On Spotify?:#{data[:on_spotify]}" })
-    when './genre.json'
-      genre_data = saved_data.map { |data| { name: data[:name] } }
-      puts(genre_data.map { |data| (data[:name]).to_s })
-    end
+    handler_for(file_path).call(saved_data)
   end
 
   def list_all_music_albums
@@ -269,4 +243,43 @@ class App
   def add_games_from_file(arr)
     @games += arr if arr != []
   end
+end
+
+def file_exists?(file_path)
+  File.file?(file_path)
+end
+
+def read_file_data(file_path)
+  File.read(file_path).strip
+end
+
+def handler_for(file_path)
+  {
+    './labels.json' => ->(data) { handle_labels_data(data) },
+    './books.json' => ->(data) { handle_books_data(data) },
+    './music_album.json' => ->(data) { handle_music_album_data(data) },
+    './genre.json' => ->(data) { handle_genre_data(data) }
+  }.fetch(file_path, ->(_) {})
+end
+
+def handle_labels_data(data)
+  labels_titles = data.map { |label| { color: label[:color], title: label[:title] } }
+  puts(labels_titles.map { |label| "#{label[:title]} (#{label[:color]})" })
+end
+
+def handle_books_data(data)
+  books_titles = data.map { |book| { genre: book[:genre], author: book[:author] } }
+  puts(books_titles.map { |book| "Author:#{book[:author]} | Genre:#{book[:genre]}" })
+end
+
+def handle_music_album_data(data)
+  music_albums = data.map { |album| { author: album[:author], date: album[:date], on_spotify: album[:on_spotify] } }
+  puts(music_albums.map do |album|
+         "Author:#{album[:author]} | Publish date: #{album[:date]} | On Spotify?:#{album[:on_spotify]}"
+       end)
+end
+
+def handle_genre_data(data)
+  genre_data = data.map { |genre| { name: genre[:name] } }
+  puts(genre_data.map { |genre| genre[:name].to_s })
 end
