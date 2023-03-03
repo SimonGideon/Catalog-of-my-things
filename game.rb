@@ -13,10 +13,11 @@ class Game < Item
   def can_be_archived?
     today = Date.today
     two_years_ago = Date.new(today.year - 2, today.month, today.day)
-    super && @last_played < two_years_ago
+    super && @last_played_at < two_years_ago
   end
 
   def file_name
     'games.json'
   end
 end
+
