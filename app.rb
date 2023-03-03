@@ -122,7 +122,7 @@ class App
       @data = data
       @file_path = file_path
     end
-  
+
     def save
       # format the data
       opts = {
@@ -136,20 +136,19 @@ class App
       existing_data = []
       if File.file?(@file_path)
         file_data = File.read(@file_path)
-        existing_data = JSON.parse(file_data) if !file_data.strip.empty?
+        existing_data = JSON.parse(file_data) unless file_data.strip.empty?
       end
       # append the new data to it
-      if existing_data.is_a?(Array)
-        existing_data += @data.map(&:to_hash)
-      else
-        existing_data = existing_data + [@data.map(&:to_hash)]
-      end
+      existing_data += if existing_data.is_a?(Array)
+                         @data.map(&:to_hash)
+                       else
+                         [@data.map(&:to_hash)]
+                       end
       # overwrite the file with the updated data
       File.write(@file_path, JSON.pretty_generate(existing_data, opts))
     end
-    
   end
-  
+
   def list_all_music_albums
     if @music_album.empty?
       puts 'No album found'
@@ -181,7 +180,6 @@ class App
     books.push(book)
     puts 'Book created succesfully', ''
   end
-  
 
   def label_options
     label_title = gets.chomp
