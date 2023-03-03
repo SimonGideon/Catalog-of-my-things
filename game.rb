@@ -11,12 +11,9 @@ class Game < Item
   end
 
   def can_be_archived?
-    str = DateTime.now
-    current_date = Date.parse str.strftime('%Y-%m-%d')
-    age = (current_date - @last_played_at) / 365
-    return true if super && age > 2
-
-    false
+    today = Date.today
+    two_years_ago = Date.new(today.year - 2, today.month, today.day)
+    super && @last_played < two_years_ago
   end
 
   def file_name
