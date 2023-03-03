@@ -147,6 +147,26 @@ class App
     handler_for(file_path).call(saved_data)
   end
 
+  def display_labels(data)
+    labels_titles = data.map { |label| { color: label[:color], title: label[:title] } }
+    puts(labels_titles.map { |label| "#{label[:title]} (#{label[:color]})" })
+  end
+
+  def display_books(data)
+    books_titles = data.map { |book| { genre: book[:genre], author: book[:author] } }
+    puts(books_titles.map { |book| "Author:#{book[:author]} | Genre:#{book[:genre]}" })
+  end
+
+  def display_music_album(data)
+    music_albums = data.map { |album| { author: album[:author], date: album[:date], on_spotify: album[:on_spotify] } }
+    puts(music_albums.map { |album| "Author:#{album[:author]} | Publish date: #{album[:date]} | On Spotify?:#{album[:on_spotify]}" })
+  end
+
+  def display_genre(data)
+    genres = data.map { |genre| { name: genre[:name] } }
+    puts(genres.map { |genre| genre[:name].to_s })
+  end
+
   def list_all_music_albums
     if @music_album.empty?
       puts 'No album found'
