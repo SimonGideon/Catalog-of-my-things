@@ -130,6 +130,17 @@ class App
     end
   end
 
+  def list_all_music_albums
+    if @music_album.empty?
+      puts 'No album found'
+    else
+      puts '---------------Albums---------------'
+      @music_album.each do |album|
+        puts "Genre: #{album.genre[0].name} Author: #{album.author}  Publication: #{album.publish_date} Spotify: #{album.source}"
+      end
+    end
+  end
+
   def create_book
     print "Book's genre: "
     @genre = genre_options

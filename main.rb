@@ -15,10 +15,11 @@ def display_menu
   puts '3. List all labels'
   puts '4. List all authors'
   puts '5. List all games'
-  puts '6. Add a book'
-  puts '7. Add a music album'
-  puts '8. Add a game'
-  puts '9. Quit'
+  puts '6. List all albums'
+  puts '7. Add a book'
+  puts '8. Add a music album'
+  puts '9. Add a game'
+  puts '10. Quit'
 end
 
 def menu_choice
@@ -38,16 +39,18 @@ def list_items(choice, app)
     app.list_all_authors
   when 5
     app.list_games
+  when 6
+    app.list_all_music_albums
   end
 end
 
 def handle_menu_choice(choice, app)
   case choice
-  when 1, 2, 3, 4, 5
+  when 1, 2, 3, 4, 5, 6
     list_items(choice, app)
-  when 6, 7, 8
+  when 7, 8, 9
     create_item(choice, app)
-  when 9
+  when 10
     @file_manager.write_on_file(@game.file_name, app.games)
     app.save_data
     return true
@@ -59,11 +62,11 @@ end
 
 def create_item(choice, app)
   case choice
-  when 6
-    app.create_book
   when 7
-    app.create_album
+    app.create_book
   when 8
+    app.create_album
+  when 9
     app.create_game
   end
 end
