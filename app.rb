@@ -160,13 +160,13 @@ class App
     case file_path
     when './labels.json'
       labels_titles = saved_data.map { |data| { color: data[:color], title: data[:title] } }
-      puts(labels_titles.map { |data| "#{data[:title]}: #{data[:color]}" })
+      puts(labels_titles.map { |data| "#{data[:title]} (#{data[:color]})" })
     when './books.json'
       books_titles = saved_data.map { |data| { genre: data[:genre], author: data[:author] } }
-      puts(books_titles.map { |data| "#{data[:author]}: #{data[:genre]}" })
+      puts(books_titles.map { |data| "Author:#{data[:author]} | Genre:#{data[:genre]}" })
     when './music_album.json'
       music_album = saved_data.map { |data| { author: data[:author], date: data[:date], on_spotify: data[:on_spotify] } }
-      puts(music_album.map { |data| "#{data[:author]}: #{data[:date]} #{data[:on_spotify]}" })
+      puts(music_album.map { |data| "Author:#{data[:author]} | Publish date: #{data[:date]} | On Spotify?:#{data[:on_spotify]}" })
     when './genre.json'
       genre_data = saved_data.map { |data| { name: data[:name] } }
       puts(genre_data.map { |data| (data[:name]).to_s })
