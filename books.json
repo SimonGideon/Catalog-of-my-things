@@ -1,5 +1,37 @@
 [
+  {
+    "id" : 378,
+    "genre" : [
+      {
+        "name" : "Fiction"
+      },
+      {
+        "name" : "Reggae"
+      }
+    ],
+    "author" : "Marky M",
+    "source" : "Stanford",
+    "label" : [
+      {
+        "id" : 961,
+        "title" : "Escalate",
+        "color" : "Blue",
+        "items" : [
 
-][
+        ]
+      },
+      {
+        "id" : 292,
+        "title" : "Redit",
+        "color" : "Green",
+        "items" : [
 
+        ]
+      }
+    ],
+    "publish_date" : "2020-04-04",
+    "archived" : false,
+    "publisher" : "Long Horn",
+    "cover_state" : "good"
+  }
 ]

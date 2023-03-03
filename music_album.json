@@ -1,5 +1,36 @@
 [
+  {
+    "genre" : [
+      {
+        "name" : "Fiction"
+      },
+      {
+        "name" : "Reggae"
+      }
+    ],
+    "author" : "Lucky Dube",
+    "source" : "Jamaica",
+    "label" : [
+      {
+        "id" : 961,
+        "title" : "Escalate",
+        "color" : "Blue",
+        "items" : [
 
-][
+        ]
+      },
+      {
+        "id" : 292,
+        "title" : "Redit",
+        "color" : "Green",
+        "items" : [
 
+        ]
+      }
+    ],
+    "publish_date" : "2021-09-08",
+    "on_spotify" : {
+      "on_spotify" : false
+    }
+  }
 ]
