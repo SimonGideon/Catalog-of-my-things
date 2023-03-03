@@ -1,26 +1,13 @@
 [
   {
-    "id" : 605,
-    "genre" : [
-      {
-        "name" : "dfdfdf"
-      }
-    ],
-    "author" : "dfdfd",
-    "source" : "dfdfd",
-    "label" : [
-      {
-        "id" : 447,
-        "title" : "dfdf",
-        "color" : "dfdf",
-        "items" : [
-
-        ]
-      }
-    ],
-    "publish_date" : "2020-08-07",
+    "id" : 168,
+    "genre" : "sdsds",
+    "author" : "fgrrt",
+    "source" : "tyytyty",
+    "label" : "tytyt",
+    "publish_date" : "2020-04-02",
     "archived" : false,
-    "publisher" : "sdsd",
+    "publisher" : "sdsdf",
     "cover_state" : "bad"
   }
 ]
