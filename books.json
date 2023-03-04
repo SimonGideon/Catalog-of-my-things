@@ -1,0 +1,35 @@
+[
+  {
+    "id" : 981,
+    "genre" : "Horror",
+    "author" : "SK",
+    "source" : "Library",
+    "label" : "Green",
+    "publish_date" : "2022-10-10",
+    "archived" : false,
+    "publisher" : "KJS",
+    "cover_state" : "good"
+  },
+  {
+    "id" : 697,
+    "genre" : "Action",
+    "author" : "KS",
+    "source" : "Li",
+    "label" : "Old",
+    "publish_date" : "2021-10-10",
+    "archived" : false,
+    "publisher" : "Asd",
+    "cover_state" : "bad"
+  },
+  {
+    "id" : 633,
+    "genre" : "Mistery",
+    "author" : "KSD",
+    "source" : "Gift",
+    "label" : "Worn",
+    "publish_date" : "2000-10-10",
+    "archived" : false,
+    "publisher" : "LKS",
+    "cover_state" : "bad"
+  }
+]
