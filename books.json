@@ -20,5 +20,16 @@
     "archived" : false,
     "publisher" : "Asd",
     "cover_state" : "bad"
+  },
+  {
+    "id" : 633,
+    "genre" : "Mistery",
+    "author" : "KSD",
+    "source" : "Gift",
+    "label" : "Worn",
+    "publish_date" : "2000-10-10",
+    "archived" : false,
+    "publisher" : "LKS",
+    "cover_state" : "bad"
   }
 ]
